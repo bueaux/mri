@@ -1,4 +1,5 @@
 from itertools import ifilter, izip
+from operator import add
 
 from mri import _entropy
 
