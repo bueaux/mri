@@ -13,6 +13,7 @@ def draw_graph_mpl(graph_data, **kwargs):
         size = kwargs.pop('size', None)
         dpi = kwargs.pop('dpi', 100.0)
         legend = kwargs.pop('legend', False)
+        font_size = kwargs.pop('xtick_font_size', False)
 
         # Set up subplots.
         fig, ax = plt.subplots()
@@ -46,10 +47,13 @@ def draw_graph_mpl(graph_data, **kwargs):
         if not thumb:
             # Adjust x-ticks to be in hex, and on sane boundaries.
             ticks = ax.get_xticks()
-            locs, labels = plt.xticks()
-            plt.setp(labels, rotation=25, horizontalalignment='right')
             ax.set_xticks(generate_hex_ticks(ticks, xaxis_max))
             ax.xaxis.set_major_formatter(ticker.FormatStrFormatter('%x'))
+            locs, labels = plt.xticks()
+            if font_size:
+                plt.setp(labels, rotation=25, horizontalalignment='right', fontsize=font_size)
+            else:
+                plt.setp(labels, rotation=25, horizontalalignment='right')
             ax.grid()
 
             if xlabel:
