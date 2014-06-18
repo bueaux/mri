@@ -217,15 +217,3 @@ def pointers_to_references(pointers, pe, factor=4):
         refcounts.append(val/BLOCK_LEN)
 
     return refcounts
-
-def main():
-    import sys
-    filename = 'c:/windows/system32/notepad.exe'
-    if len(sys.argv) > 1:
-        filename = sys.argv[1]
-
-    graph_data = generate_graph_data(filename)
-    draw_graph_mpl(graph_data, filename='test.png')
-
-if __name__ == '__main__':
-    main()
