@@ -121,6 +121,8 @@ def _plot_graph_bar(ax, plot_data, **kwargs):
             continue
         plot_kwargs[prop] = plot_data[prop]
     data = plot_data['data']
+    if not data:
+        return
 
     ax.bar(*data, **plot_kwargs)
 
