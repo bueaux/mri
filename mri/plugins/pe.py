@@ -137,7 +137,7 @@ def _get_boundaries(pe, filesize):
         if m is not None:
             name = m.group(1)
         if name == '':
-            name = 'sec_%d' % (num-n)
+            name = 'sec_%d' % (nsec-n)
 
         end = s.PointerToRawData + s.SizeOfRawData
         if end > appended_offset:
